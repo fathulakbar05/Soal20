@@ -11,27 +11,25 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" /> -->
 
         <!-- Styles -->
-        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
-    <body>
-        <div>
-            <h1>Daftar Peminjaman</h1>
-            <div>
-                <div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nama</th>
-                                <th>Tanggal Pinjam</th>
-                                <th>Tanggal Kembali</th>
-                            </tr>
-                        </thead>
-                        <tbody id='tabelPeminjaman'>
-                            
-                        </tbody>
-                    </table>
-                </div>
+    <body >
+        <div class="container mt-5">
+            <h1 class="mb-0">Daftar Peminjaman</h1>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama</th>
+                            <th>Tanggal Pinjam</th>
+                            <th>Tanggal Kembali</th>
+                        </tr>
+                    </thead>
+                    <tbody id='tabelPeminjaman'>
+                        
+                    </tbody>
+                </table>
             </div>
         </div>
 
