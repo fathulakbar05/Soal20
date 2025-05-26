@@ -27,6 +27,12 @@ class peminjamanSeeder extends Seeder
                 'tanggal_pinjam' => '2023-10-05',
                 'tanggal_kembali' => '2023-10-20',
             ],
+            [
+                'id_buku' => 3,
+                'nama_peminjam' => "Alice Johnson",
+                'tanggal_pinjam' => '2023-10-10',
+                'tanggal_kembali' => '2023-10-25',
+            ],
         ]);
     }
 }

@@ -39,6 +39,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <script>
             $(document).ready(function() {
+                loadPeminjaman();
+
                 function loadPeminjaman() {
                     $.get('/api/peminjaman', function(data) {
                         let html = '';
@@ -49,33 +51,35 @@
                                     <td>${pjm.nama_peminjam}</td>
                                     <td>${pjm.tanggal_pinjam}</td>
                                     <td>${pjm.tanggal_kembali}</td>
+                                    <td>
+                                        <button class="btn-delete" data-id="${pjm.id_peminjaman}">Hapus</button>
+                                    </td>
                                 </tr>
-                                <td>
-                                    <button id="delete-btn" data-id="${pjm.id_peminjaman}">Hapus</button>
-                                </td>
                             `;
                         });
                         $('#tabelPeminjaman').html(html);
                     });
                 }
-                loadPeminjaman();
-            });
 
-            $(document).on('click', '#delete-btn', function() {
-                if(confirm('Apakah Anda yakin ingin menghapus data ini?')) {
-                    const id = $(this).data('id');
-                    
-                    $.ajax({
-                        url: `/api/peminjaman/${id}`,
-                        method: 'DELETE',
-                        success: function() {
-                            loadPeminjaman();
-                            alert('Data berhasil dihapus!');
-                        }
-                    });
-                }
-            });
+                $(document).on('click', '.btn-delete', function() {
+                    if (confirm('Apakah Anda yakin ingin menghapus data ini?')) {
+                        const id = $(this).data('id'); 
 
+                        $.ajax({
+                            url: `/api/peminjaman/${id}`,
+                            method: 'DELETE',
+                            success: function() {
+                                loadPeminjaman(); 
+                                alert('Data berhasil dihapus!');
+                            },
+                            error: function(xhr, status, error) {
+                                alert('Terjadi kesalahan saat menghapus data: ' + xhr.responseText);
+                                console.error("Error:", error);
+                            }
+                        });
+                    }
+                });
+            });
         </script>
     </body>
 </html>
